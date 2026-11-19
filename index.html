@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CHM 230: Introduction to Computational Chemistry with Artificial Intelligence | Spring 2027</title>
+<meta name="description" content="CHM 230, Spring 2027, College of Staten Island. Learn Python, machine learning, and four new AI modules in computational drug discovery, with a cross-campus workshop led by Prof. Emilio Gallicchio of Brooklyn College.">
+<meta property="og:title" content="CHM 230: Introduction to Computational Chemistry with Artificial Intelligence">
+<meta property="og:description" content="Spring 2027 at CSI. Python, machine learning, and AI for drug discovery. No coding experience required.">
+<meta property="og:image" content="hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;1,400&display=swap">
+<style>
+:root{--bg:#fff;--fg:#16191d;--muted:#5b6470;--rule:#e3e7ec;--tint:#f4f7f9;--accent:#0b5f86;--accent-soft:#d8e9f2;--on-accent:#fff;
+--sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;--serif:"IBM Plex Serif",Georgia,serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1317;--fg:#e7ebef;--muted:#9aa5b1;--rule:#252c34;--tint:#161c22;--accent:#6cb8de;--accent-soft:#163142;--on-accent:#0f1317}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:16.5px/1.65 var(--sans)}
+a{color:var(--accent)}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+header.bar{border-bottom:1px solid var(--rule);font-size:14px}
+header.bar .wrap{display:flex;gap:16px;align-items:center;justify-content:space-between;min-height:52px;flex-wrap:wrap}
+header.bar a{text-decoration:none;color:var(--muted)}
+header.bar a:hover{color:var(--accent)}
+header.bar .brand{color:var(--fg);font-weight:600}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:48px 0 40px}
+.eyebrow{font:500 12.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:clamp(30px,4.6vw,46px);line-height:1.1;margin:10px 0 14px;letter-spacing:-.01em}
+h1 .ai{color:var(--accent)}
+.lede{font:italic 400 19px/1.55 var(--serif);color:var(--muted);margin:0 0 22px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:11px 18px;border-radius:6px;font-weight:600;text-decoration:none;font-size:15px;border:1.5px solid var(--accent)}
+.btn.primary{background:var(--accent);color:var(--on-accent)}
+.btn.ghost{color:var(--accent)}
+.hero figure{margin:0}
+.hero img{display:block;width:100%;height:auto;border-radius:10px;aspect-ratio:1/1;object-fit:cover}
+figcaption{font-size:12.5px;font-style:italic;color:var(--muted);margin-top:8px}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--rule);border-radius:8px;overflow:hidden;background:var(--tint)}
+.facts div{padding:16px 18px;border-right:1px solid var(--rule)}
+.facts div:last-child{border-right:0}
+.facts b{display:block;font:500 11.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.facts span{font-size:15px}
+section{padding:44px 0 4px}
+h2{font-size:26px;margin:0 0 12px;letter-spacing:-.005em}
+h3{font-size:17px;margin:0 0 4px}
+p{margin:0 0 14px;max-width:70ch}
+.modules{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px}
+.card{border:1px solid var(--rule);border-radius:8px;padding:18px 18px 8px;background:var(--bg)}
+.card .n{font:500 12px var(--mono);color:var(--accent);letter-spacing:.06em}
+.card p{font-size:15px;color:var(--muted)}
+.collab{margin-top:44px;background:var(--accent-soft);border-radius:10px;padding:28px 28px 14px;display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:start}
+.collab .badge{font:500 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--accent);border:1.5px solid var(--accent);padding:6px 10px;border-radius:20px;white-space:nowrap}
+.collab h2{margin-top:0}
+ul.plain{padding-left:20px;margin:0 0 14px}
+ul.plain li{margin:4px 0;max-width:72ch}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+table{border-collapse:collapse;width:100%;font-size:15px}
+td{padding:9px 10px;border-top:1px solid var(--rule);vertical-align:top}
+td:first-child{font:500 13px var(--mono);color:var(--muted);white-space:nowrap;width:34%}
+footer{margin-top:56px;border-top:1px solid var(--rule);padding:22px 0 40px;font-size:14px;color:var(--muted)}
+@media (max-width:760px){.hero{grid-template-columns:1fr;gap:24px;padding-top:28px}.facts{grid-template-columns:1fr 1fr}.facts div:nth-child(2){border-right:0}.facts div:nth-child(-n+2){border-bottom:1px solid var(--rule)}.modules,.two{grid-template-columns:1fr}.collab{grid-template-columns:1fr;padding:22px 20px 8px;gap:12px}td:first-child{width:38%}}
+</style>
+</head>
+<body>
+<header class="bar"><div class="wrap">
+  <a class="brand" href="https://www.csi.cuny.edu/academics-and-research/departments-programs/chemistry" target="_blank" rel="noopener">College of Staten Island, CUNY &middot; Chemistry</a>
+  <nav><a href="#about">About</a> &nbsp; <a href="#ai">AI modules</a> &nbsp; <a href="#collab">Cross-campus</a> &nbsp; <a href="#details">Details</a></nav>
+</div></header>
+
+<main class="wrap">
+  <div class="hero">
+    <div>
+      <div class="eyebrow">CHM 230 &middot; Spring 2027 &middot; 4 credits</div>
+      <h1>Introduction to Computational Chemistry <span class="ai">with Artificial Intelligence</span></h1>
+      <p class="lede">Learn to code, model molecules, and use the AI tools behind modern drug discovery. No programming experience required.</p>
+      <div class="cta">
+        <a class="btn primary" href="CHM230_Spring2027_Syllabus.pdf">View the syllabus</a>
+        <a class="btn ghost" href="mailto:Sharon.Loverde@csi.cuny.edu?subject=CHM%20230%20Spring%202027">Questions? Email Prof. Loverde</a>
+      </div>
+    </div>
+    <figure>
+      <img src="hero.jpg" alt="Molecular dynamics snapshot of a lipid bilayer, with a small drug molecule in purple approaching the membrane surface" width="832" height="832">
+      <figcaption>A drug-like molecule (purple) approaching a lipid membrane in an all-atom simulation, the kind of system students learn to model.</figcaption>
+    </figure>
+  </div>
+
+  <div class="facts" role="list">
+    <div role="listitem"><b>Lecture</b><span>Tuesdays 10:10 AM to 12:05 PM, online, live</span></div>
+    <div role="listitem"><b>Laboratory</b><span>Thursdays 9:05 AM to 12:05 PM, in person, room 1S 110</span></div>
+    <div role="listitem"><b>Prerequisites</b><span>CHM 142 and CHM 127</span></div>
+    <div role="listitem"><b>Software</b><span>Free, in your browser (Google Colab)</span></div>
+  </div>
+
+  <section id="about">
+    <h2>About the course</h2>
+    <p>CHM 230 explores how computers, data science, and artificial intelligence are transforming modern chemistry. Students learn Python through hands-on work in chemical data analysis, molecular modeling, bioinformatics, cheminformatics, and machine learning, using a programming environment designed for second-year chemistry students with no prior coding experience. Calculus is not required.</p>
+    <p>The course is open to students pursuing a BS or BA in Chemistry or Biochemistry who have completed CHM 142. It meets in a hybrid format: the Tuesday lecture is online and synchronous, the Thursday laboratory is in person, and all materials are also posted for asynchronous access. Every lecture and lab runs in Google Colab, so nobody has to buy software or own a powerful computer.</p>
+  </section>
+
+  <section id="ai">
+    <h2>New in Spring 2027: four AI modules in drug discovery</h2>
+    <p>The second half of the course is built around the same kinds of tools used in pharmaceutical and biotechnology research. Students also learn to check what those tools produce against physics-based calculation and experimental data.</p>
+    <div class="modules">
+      <div class="card"><div class="n">AI MODULE 1</div><h3>Protein structure prediction</h3><p>Predict three-dimensional protein and protein-ligand structures with AlphaFold and ColabFold, and judge how far to trust them.</p></div>
+      <div class="card"><div class="n">AI MODULE 2</div><h3>Docking and virtual screening</h3><p>Dock candidate molecules and interpret AI-guided virtual screening results.</p></div>
+      <div class="card"><div class="n">AI MODULE 3</div><h3>Generative molecular design</h3><p>Use generative models to propose new molecules and evaluate their predicted properties.</p></div>
+      <div class="card"><div class="n">AI MODULE 4</div><h3>AI-assisted scientific programming</h3><p>Write, debug, and document scientific Python with AI coding assistants, and verify the code they produce.</p></div>
+    </div>
+    <p style="margin-top:18px">Throughout, students examine the limits of AI in the molecular sciences, including hallucinated structures, training-set bias, and applicability domain, and see how these methods are used in careers across industry and healthcare.</p>
+  </section>
+
+  <div class="collab" id="collab">
+    <div class="badge">Cross-campus</div>
+    <div>
+      <h2>Workshop with Prof. Emilio Gallicchio, Brooklyn College</h2>
+      <p>In Week 12 (early May), CHM 230 joins a half-day, hands-on workshop led by <a href="https://www.compmolbiophysbc.org/" target="_blank" rel="noopener"><strong>Prof. Emilio Gallicchio</strong> and the Computational Molecular Biophysics Laboratory</a> at CUNY Brooklyn College. Students work with AI-predicted protein-drug complexes and use AI-assisted scripting to set up binding free energy calculations, the methods his group develops for structure-based drug design.</p>
+      <p>The workshop is open to students and faculty from both campuses, so CSI students learn alongside peers and researchers from Brooklyn.</p>
+    </div>
+  </div>
+
+  <section id="details">
+    <div class="two">
+      <div>
+        <h2>What you will learn</h2>
+        <ul class="plain">
+          <li>Python fundamentals: arrays, strings, loops, functions, modules, and error handling</li>
+          <li>Visualizing and analyzing chemical data with Matplotlib, NumPy, Pandas, and Seaborn</li>
+          <li>Supervised and unsupervised machine learning on chemical data</li>
+          <li>Cheminformatics with SMILES and RDKit</li>
+          <li>Bioinformatics, molecular modeling, and AI structure prediction</li>
+          <li>Docking, virtual screening, and generative design</li>
+          <li>Using AI tools responsibly, and verifying their output</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Course details</h2>
+        <table>
+          <tr><td>Course</td><td>CHM 230-01 (27358), lecture<br>CHM 230-01L1 (27359), laboratory</td></tr>
+          <tr><td>Instructor</td><td>Prof. Sharon Loverde<br><a href="mailto:Sharon.Loverde@csi.cuny.edu">Sharon.Loverde@csi.cuny.edu</a><br>Office 6S-238 &middot; 718-982-4075</td></tr>
+          <tr><td>Dates</td><td>January 28 to May 27, 2027</td></tr>
+          <tr><td>Assessment</td><td>Lab reports 40%, midterm 30%, final project or presentation 30%</td></tr>
+          <tr><td>Textbook</td><td><a href="https://weisscharlesj.github.io/SciCompforChemists/notebooks/introduction/intro.html" target="_blank" rel="noopener">Scientific Computing for Chemists with Python</a> (free online)</td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">
+  <a href="https://cuny-csi-loverde-laboratory.github.io/#teaching">Loverde Laboratory</a> &middot; College of Staten Island, CUNY, 2800 Victory Boulevard, Staten Island, NY 10314 &middot; Dates and details are subject to change by official action of the University. See the <a href="CHM230_Spring2027_Syllabus.pdf">syllabus</a> for the full schedule.
+</div></footer>
+</body>
+</html>
